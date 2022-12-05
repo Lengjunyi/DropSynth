@@ -14,8 +14,8 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-from Bio.Alphabet import IUPAC
-from Bio.Alphabet import generic_dna
+# from Bio.Alphabet import IUPAC
+# from Bio.Alphabet import generic_dna
 from Bio.Restriction import *
 import pylab
 
@@ -35,7 +35,7 @@ def getBuildOligos(filename,num_oligos):
             buildoligos.append([line.strip()])
             localCount = 0
         elif line != "":
-            buildoligos[-1].append(Seq(line.strip(),generic_dna))
+            buildoligos[-1].append(Seq(line.strip()))
             countOligos += 1
             localCount += 1
         
@@ -59,7 +59,7 @@ def addBtsI(constructs):
         newconstruct = []
         newconstruct.append(construct[0])
         for i in range(1,len(construct)):
-            newoligo = Seq("GCAGTG",generic_dna) + construct[i] + Seq("CACTGC",generic_dna)
+            newoligo = Seq("GCAGTG") + construct[i] + Seq("CACTGC")
             rb = RestrictionBatch([BtsI, BspQI, NdeI, KpnI,EcoRI])
             seqsearch = rb.search(newoligo)
             if i==1:
@@ -130,7 +130,7 @@ def padOligoCP(constructs,totallength):
                 last_padding = ""
             
             full_padding_seq = "ATGC" * full_seq + last_padding
-            newoligo =  Seq(full_padding_seq,generic_dna) + construct[i] # add padding between BspQI and BtsI
+            newoligo =  Seq(full_padding_seq) + construct[i] # add padding between BspQI and BtsI
             rb = RestrictionBatch([BtsI, BspQI, NdeI, KpnI, EcoRI])
             seqsearch = rb.search(newoligo)
             if i==1:
@@ -164,7 +164,7 @@ def addBarcodes(constructs, barcodes):
         newconstruct = []
         newconstruct.append(constructs[index][0]+';'+barcodes[index].id)
         for i in range(1,len(constructs[index])):
-            newoligo = Seq("GCTCTTCG",generic_dna) + barcodes[index].seq + Seq("CGAAGAGC",generic_dna) + constructs[index][i]
+            newoligo = Seq("GCTCTTCG") + barcodes[index].seq + Seq("CGAAGAGC") + constructs[index][i]
             rb = RestrictionBatch([BtsI, BspQI, NdeI, KpnI,EcoRI])
             seqsearch = rb.search(newoligo)
             if i==1:

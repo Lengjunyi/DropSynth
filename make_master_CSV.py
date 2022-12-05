@@ -3,7 +3,7 @@
 from Bio import SeqIO
 import random
 random.seed(15643243242342759)
-from Bio.Alphabet import generic_dna
+# from Bio.Alphabet import generic_dna
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import Restriction

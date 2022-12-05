@@ -5,7 +5,7 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 import re
 import time
-from Bio.Alphabet import IUPAC
+# from Bio.Alphabet import IUPAC
 import pylab
 import csv
 import math

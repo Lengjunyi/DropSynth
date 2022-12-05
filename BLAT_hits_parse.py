@@ -3,8 +3,8 @@ from Bio import Seq
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
-from Bio.Alphabet import IUPAC
-from Bio.Alphabet import generic_dna
+# from Bio.Alphabet import IUPAC
+# from Bio.Alphabet import generic_dna
 
 def getFastaSeqs(filename):
     fastqseqs = []

@@ -4,8 +4,8 @@ from Bio import Seq
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
-from Bio.Alphabet import IUPAC
-from Bio.Alphabet import generic_dna
+# from Bio.Alphabet import IUPAC
+# from Bio.Alphabet import generic_dna
 import re
 import math
 
@@ -30,7 +30,7 @@ csv_input_file = csv.DictReader(csv_file_handle)
 for crec in csv_input_file:
     seqdesigned = crec["Sequence"]
     if str(seqdesigned).count('A') > str(seqdesigned).count('T') and check_final_RC:
-        newoligo = str(Seq(seqdesigned,generic_dna).reverse_complement())
+        newoligo = str(Seq(seqdesigned).reverse_complement())
     else:
         newoligo = seqdesigned
     for n in range(minlength,maxlength):

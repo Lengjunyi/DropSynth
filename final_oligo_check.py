@@ -1,8 +1,8 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-from Bio.Alphabet import IUPAC
-from Bio.Alphabet import generic_dna
+# from Bio.Alphabet import IUPAC
+# from Bio.Alphabet import generic_dna
 from Bio.Restriction import *
 
 ##################################
@@ -88,7 +88,7 @@ def checkConstruct(construct,lengthmax,filenum,ampprimf,ampprimr,barcode,assembl
         kpnsearch = KpnI.search(oligoseqrec.seq)
         ndesearch = NdeI.search(oligoseqrec.seq)
         asmpriFsearch = str(oligoseqrec.seq).find(assemblyprimf)
-        assemblyprimr_seq = Seq(assemblyprimr, generic_dna)
+        assemblyprimr_seq = Seq(assemblyprimr)
         asmpriRsearch = str(oligoseqrec.seq).find(str(assemblyprimr_seq.reverse_complement()))
         #pos end btsaI from end = amp length + BtsaI_length -1
         if len(btssearch) !=2 or len(oligoseqrec)-btssearch[1] != btsai_from_end_pos: # btssearch[0] != 43:#

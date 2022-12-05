@@ -6,7 +6,7 @@ from Bio.SeqRecord import SeqRecord
 import re
 import time
 import json
-from Bio.Alphabet import IUPAC
+# from Bio.Alphabet import IUPAC
 import pylab
 import csv
 from Bio import Entrez
