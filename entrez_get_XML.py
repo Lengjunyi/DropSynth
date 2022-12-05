@@ -27,7 +27,7 @@ if __name__ == '__main__':
             if not os.path.isfile(filename):
                 # Downloading...
                 net_handle = Entrez.efetch(db="protein",id=accID,retmode="xml")
-                out_handle = open(filename, "w")
+                out_handle = open(filename, "wb")
                 out_handle.write(net_handle.read())
                 out_handle.close()
                 net_handle.close()
